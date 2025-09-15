@@ -613,7 +613,7 @@ body {
 }
 
 .amenity-item {
-    flex: 0 0 calc(0% - 32px); /* 5 элементов по 20% каждый */
+    flex: 0 0 auto; /* ширина контролируется содержимым/слайдером */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1295,6 +1295,7 @@ body {
     .menu-item { display: none; }
     .burger { display: inline-block; }
     .contact-us { padding: 8px 14px; font-size: 13px; margin-left: auto; }
+    
 
 	/* Section 1 mobile */
 	.section-1 { padding: 40px 20px 0 20px; }
@@ -1430,8 +1431,10 @@ body {
 		letter-spacing: 0;
 	}
 
-    .location-button {
-        display: none;
+    	.location-button {
+        display: flex;
+        justify-content: center;
+        margin-top: 8px;
     }
 
 	/* Section 5 (Coming soon) */
@@ -1511,6 +1514,8 @@ body {
     align-items: center;
     margin-bottom: 66px;
 }
+.section-ew .section-1-info-panel { padding: 28px 0; }
+.section-ew .section-1-info-panel-inner { justify-content: space-evenly; }
 .ew-slider { position: relative; height: 590px; }
 .ew-slider .slider-image {
     width: 100%;
@@ -1530,7 +1535,7 @@ body {
     margin-right: auto;
 }
 .section-ew .slider-container { height: 100%; overflow: hidden; }
-.section-ew .slider-nav-arrow { right: 120px; }
+.section-ew .slider-nav-arrow { right: 24px; }
 
 @media (max-width: 768px) {
     .section-ew { padding: 20px 20px 0 20px; margin-bottom: 16px; }
@@ -1578,7 +1583,7 @@ body {
     /* моб. карусели: как секция 6 */
     .section-interior .projects-slider { overflow: hidden; padding-right: 0; }
     .section-interior .projects-track { display: flex; gap: 16px; width: auto; transition: transform .35s ease; }
-    .section-interior .project-item { flex: 0 0 calc(100% - 48px); }
+    .section-interior .project-item { flex: 0 0 100%; }
     .section-interior .project-image { width: 100%; height: 240px; object-fit: cover; }
     .section-interior .projects-navigation { display: none; }
 }
@@ -1801,4 +1806,10 @@ body {
     .building-title, .unit-title { font-size: 28px; line-height: 120%; }
     .unit-name { font-size: 20px; }
     .handover-label, .handover-value { font-size: 20px; }
+    .building-image img { height: 240px; object-fit: cover; }
+}
+
+@media (max-width: 768px) {
+    .slider-indicators .indicator { width: 40px; height: 3px; }
+    .ew-divider {margin-top: 34px;}
 }
