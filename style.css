@@ -1809,13 +1809,25 @@ body {
 
 @media (max-width: 768px) {
     .section-building { padding: 20px; }
-    .building-content { grid-template-columns: 1fr; gap: 60px; }
-    .building-stats { gap: 16px; margin-bottom: 24px; }
-    .building-stat { padding: 0; border-right: none; }
-    .building-title, .unit-title { font-size: 28px; line-height: 120%; }
-    .unit-name { font-size: 20px; }
-    .handover-label, .handover-value { font-size: 20px; }
-    .building-image img { height: 240px; object-fit: cover; }
+    .building-content { grid-template-columns: 1fr; gap: 24px; }
+    .building-title, .unit-title { font-size: 20px; line-height: 119%; text-align: center; margin-bottom: 12px; }
+    .building-text { font-size: 12px; line-height: 150%; opacity: .8; max-width: 100%; margin: 8px 0 14px 0; text-align: center; }
+    .building-stats { gap: 10px; margin: 8px auto 16px auto; justify-content: center; align-items: center; max-width: 360px; }
+    .building-stat { padding: 0 8px; }
+    .building-stat:not(:last-child) { border-right: 1px solid rgba(0,0,0,.2); }
+    .stat-number { font-size: 18px; height: auto; }
+    .stat-label { font-size: 10px; line-height: 119%; margin-top: 4px; }
+    .building-image img { height: 200px; object-fit: cover; }
+    .unit-list { align-items: center; gap: 12px; }
+    .unit-item { align-items: center; }
+    .unit-name { font-size: 16px; margin-top: 8px; }
+    .unit-range { font-size: 10px; margin-bottom: 8px; text-align: center; }
+    .unit-price { font-size: 12px; }
+    .unit-divider { margin: 6px 0 0 0; }
+    .building-cta { margin-top: 16px; }
+    .handover { margin: 24px 0 12px 0; text-align: center; }
+    .handover-label { font-size: 12px; }
+    .handover-value { font-size: 18px; }
 }
 
 @media (max-width: 768px) {
@@ -1837,4 +1849,5 @@ body {
     .amenity + .amenity { border-left: 1px solid rgba(0,0,0,.2); }
     /* убрать разделитель у первого столбца каждой строки (5 колонок) */
     .amenities-list .amenity:nth-child(5n + 1) { border-left: none; }
+    .amenities-divider { width: 100%; }
 }
