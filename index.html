@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <video class="header-video" autoplay muted loop playsinline poster="img/Copy of A_Pti4ka_1 1.png">
+                <source src="vid/Edgewater_event_video.mp4" type="video/mp4">
+            </video>
+            <div class="menu">
+                <button class="burger" aria-label="Open menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <a class="menu-logo" href="#">
+                    <img src="img/logo.svg" alt="MGS Development logo">
+                </a>
+                <a class="menu-item" href="#projects">projects</a>
+                <a class="menu-item" href="#amenities">Amenities</a>
+                <a class="menu-item" href="#location">location</a>
+                <button class="contact-us">Contact us</button>
+            </div>
+
+            <nav class="mobile-menu" aria-hidden="true">
+                <div class="mobile-menu-inner">
+                    <button class="mobile-close" aria-label="Close menu">✕</button>
+                    <a class="mobile-link" href="#projects">Projects</a>
+                    <a class="mobile-link" href="#amenities">Amenities</a>
+                    <a class="mobile-link" href="#location">Location</a>
+                </div>
+            </nav>
+
+            <div class="header-brand">
+                <img src="img/logo.svg" alt="MGS Development">
+            </div>
+            <!-- <div class="header-content">
+                <h1 class="header-title">Unlock Tranquil</h1>
+                <p class="header-subtitle">seaside lifestyle</p>
+            </div> -->
+        </header>
+        <main class="main">
+            <section class="section-1">
+                <div class="section-1-content">
+                    <div class="section-1-brochure">
+                        <h2 class="section-1-brochure-title">MGS Development</h2>
+                        <p class="section-1-brochure-subtitle">MGS Development is a trusted real estate developer with over 25 million square feet built, known for creating innovation, sustainability, and elegant design that truly feels like home.</p>
+                        <button class="section-1-brochure-button">Download Brochure</button>
+                    </div>
+                    <div class="section-1-media">
+                        <img src="img/first.png" alt="Edgewater photo 1" class="section-1-media-img">
+                        <img src="img/second.png" alt="Edgewater photo 2" class="section-1-media-img">
+                    </div>
+                    <div class="section-1-info-panel">
+                        <div class="section-1-info-panel-inner">
+                            <div class="info-section">
+                                <h3 class="info-label">LOCATION</h3>
+                                <p class="info-main">DUBAI ISLANDS</p>
+                                <p class="info-sub">EDGEWATER RESIDENCES</p>
+                            </div>
+                            <div class="info-divider"></div>
+                            <div class="info-section">
+                                <h3 class="info-label">PAYMENT PLAN</h3>
+                                <p class="info-main">35/65</p>
+                            </div>
+                            <div class="info-divider"></div>
+                            <div class="info-section">
+                                <h3 class="info-label">STARTING AT</h3>
+                                <p class="info-main">1.7 M AED</p>
+                            </div>
+                            <div class="info-divider"></div>
+                            <div class="info-section">
+                                <h3 class="info-label">COMPLETION</h3>
+                                <p class="info-main">Q4 2026</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section-2">
+                <div class="section-2-content">
+                    <div class="section-2-text">
+                        <div class="vertical-text">
+                            <h3 class="text-main">EXTERIOR</h3>
+                            <p class="text-sub">project</p>
+                        </div>
+                    </div>
+                    <div class="section-2-slider">
+                        <div class="slider-container">
+                            <div class="slider-track">
+                                <div class="slide active">
+                                    <img src="img/image.png" alt="Edgewater Residences Exterior" class="slider-image">
+                                </div>
+                                <div class="slide">
+                                    <img src="img/image.png" alt="Edgewater Residences Interior" class="slider-image">
+                                </div>
+                                <div class="slide">
+                                    <img src="img/image.png" alt="Edgewater Residences Amenities" class="slider-image">
+                                </div>
+                                <div class="slide">
+                                    <img src="img/image.png" alt="Edgewater Residences Location" class="slider-image">
+                                </div>
+                                <div class="slide">
+                                    <img src="img/image.png" alt="Edgewater Residences Views" class="slider-image">
+                                </div>
+                            </div>
+                            <button class="slider-nav-arrow" id="nextSlide">
+                                <img src="img/right-slider.svg" alt="arrow-right">
+                            </button>
+                        </div>
+                        <div class="slider-indicators">
+                            <div class="indicator active" data-slide="0"></div>
+                            <div class="indicator" data-slide="1"></div>
+                            <div class="indicator" data-slide="2"></div>
+                            <div class="indicator" data-slide="3"></div>
+                            <div class="indicator" data-slide="4"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section-3">
+                <div class="section-3-content">
+                    <div class="section-3-slider">
+                        <div class="slider-container">
+                            <div class="slider-track-reverse">
+                                <div class="slide">
+                                    <img src="img/image1.png" alt="Interior Design 5" class="slider-image">
+                                </div>
+                                <div class="slide">
+                                    <img src="img/image1.png" alt="Interior Design 4" class="slider-image">
+                                </div>
+                                <div class="slide">
+                                    <img src="img/image1.png" alt="Interior Design 3" class="slider-image">
+                                </div>
+                                <div class="slide">
+                                    <img src="img/image1.png" alt="Interior Design 2" class="slider-image">
+                                </div>
+                                <div class="slide active">
+                                    <img src="img/image1.png" alt="Interior Design 1" class="slider-image">
+                                </div>
+                            </div>
+                            <button class="slider-nav-arrow-reverse" id="prevSlide">
+                                <img src="img/left-slider.svg" alt="arrow-left">
+                            </button>
+                        </div>
+                        <div class="slider-indicators">
+                            <div class="indicator" data-slide="0"></div>
+                            <div class="indicator" data-slide="1"></div>
+                            <div class="indicator" data-slide="2"></div>
+                            <div class="indicator" data-slide="3"></div>
+                            <div class="indicator active" data-slide="4"></div>
+                        </div>
+                    </div>
+                    <div class="section-3-text">
+                        <div class="vertical-text">
+                            <h3 class="text-main">INTERIOR</h3>
+                            <p class="text-sub">project</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section-4" id="amenities">
+                <div class="section-4-content">
+                    <div class="section-4-header">
+                        <h2 class="section-4-title">AMENITIES</h2>
+                    </div>
+                    <div class="amenities-gallery">
+                        <div class="amenities-slider">
+                            <div class="amenities-track">
+                                <div class="amenity-item">
+                                    <img src="img/pool.png" alt="Pool" class="amenity-image">
+                                    <h3 class="amenity-title">POOL</h3>
+                                </div>
+                                <div class="amenity-item">
+                                    <img src="img/gym.png" alt="Gym" class="amenity-image">
+                                    <h3 class="amenity-title">GYM</h3>
+                                </div>
+                                <div class="amenity-item">
+                                    <img src="img/playground.png" alt="Playground" class="amenity-image">
+                                    <h3 class="amenity-title">PLAYGROUND</h3>
+                                </div>
+                                <div class="amenity-item">
+                                    <img src="img/court.png" alt="Paddle Court" class="amenity-image">
+                                    <h3 class="amenity-title">PADDLE COURT</h3>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="slider-indicators amenities-indicators">
+                                <div class="indicator active" data-slide="0"></div>
+                                <div class="indicator" data-slide="1"></div>
+                                <div class="indicator" data-slide="2"></div>
+                                <div class="indicator" data-slide="3"></div>
+                            </div>
+                        </div>
+                        <!-- <div class="amenities-navigation">
+                            <button class="amenity-nav-arrow amenity-prev">
+                                <img src="img/leftarr.svg" alt="arrow-left">
+                            </button>
+                            <button class="amenity-nav-arrow amenity-next">
+                                <img src="img/rightarr.svg" alt="arrow-right">
+                            </button>
+                        </div> -->
+                    </div>
+                </div>
+                        </section>
+            <section class="section-7" id="location">
+                <h2 class="section-7-title">LOCATION</h2>
+                <div class="location-content">
+                    <ul class="location-list">
+                        <li class="location-item">
+                            <img src="img/alarab.svg" alt="Burj Al Arab" class="location-icon">
+                            <div>
+                                <div class="location-time">25 mins</div>
+                                <div class="location-name">Burj Al Arab</div>
+                            </div>
+                        </li>
+                        <li class="location-item">
+                            <img src="img/dmall.svg" alt="Dubai Mall" class="location-icon">
+                            <div>
+                                <div class="location-time">20 mins</div>
+                                <div class="location-name">Dubai Mall</div>
+                            </div>
+                        </li>
+                        <li class="location-item">
+                            <img src="img/khalifa.svg" alt="The Burj Khalifa" class="location-icon">
+                            <div>
+                                <div class="location-time">20 mins</div>
+                                <div class="location-name">The Burj Khalifa</div>
+                            </div>
+                        </li>
+                        <li class="location-item">
+                            <img src="img/airport.svg" alt="Dubai Airport" class="location-icon">
+                            <div>
+                                <div class="location-time">10 mins</div>
+                                <div class="location-name">Dubai Airport</div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="location-map">
+                        <img src="img/footer.png" alt="Dubai Islands Map" />
+                    </div>
+                </div>
+                <div class="location-button">
+                    <button class="google-maps-btn">OPEN IN GOOGLE MAPS</button>
+                </div>
+            </section>
+            <section class="section-5">
+                <div class="section-5-content">
+                    <div class="section-5-text">
+                        <h2 class="section-5-title">Cooming soon</h2>
+                    </div>
+                    <div class="section-5-image">
+                        <img src="img/cs.png" alt="Edgewater Residences">
+                    </div>
+                    <div class="section-5-image">
+                        <img src="img/Az_V2_03.png" alt="Edgewater Residences">
+                    </div>
+                </div>
+            </section>
+            <section class="section-6" id="projects">
+                <div class="section-6-content">
+                    <div class="section-6-header">
+                        <h2 class="section-6-title">COMPLETED PROJECTS</h2>
+                    </div>
+                    <div class="projects-gallery">
+                        <div class="projects-slider">
+                            <div class="projects-track">
+                                <div class="project-item">
+                                    <img src="img/completed1.jpg" alt="SAT CITY" class="project-image">
+                                    <h3 class="project-title">SAT CITY</h3>
+                                    <p class="project-location">KAZAKHSTAN - 2020</p>
+                                </div>
+                                <div class="project-item">
+                                    <img src="img/completed2.jpg" alt="OMEGA" class="project-image">
+                                    <h3 class="project-title">OMEGA</h3>
+                                    <p class="project-location">KAZAKHSTAN - 2020</p>
+                                </div>
+                                <div class="project-item">
+                                    <img src="img/completed3.jpg" alt="SAT TOW" class="project-image">
+                                    <h3 class="project-title">SAT TOW</h3>
+                                    <p class="project-location">KAZAKHSTAN - 2020</p>
+                                </div>
+                                <div class="project-item">
+                                    <img src="img/completed1.jpg" alt="SAT CITY" class="project-image">
+                                    <h3 class="project-title">SAT CITY</h3>
+                                    <p class="project-location">KAZAKHSTAN - 2020</p>
+                                </div>
+                                <div class="project-item">
+                                    <img src="img/completed2.jpg" alt="OMEGA" class="project-image">
+                                    <h3 class="project-title">OMEGA</h3>
+                                    <p class="project-location">KAZAKHSTAN - 2020</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="projects-navigation">
+                            <button class="project-nav-arrow project-prev">
+                                <img src="img/leftarr.svg" alt="arrow-left">
+                            </button>
+                            <button class="project-nav-arrow project-next">
+                                <img src="img/rightarr.svg" alt="arrow-right">
+                            </button>
+                            <div class="projects-button">
+                                <button class="visit-website-btn">VISIT WEBSITE</button>
+                            </div>
+                        </div>
+                        <div class="projects-button mobile">
+                            <button class="visit-website-btn">VISIT WEBSITE</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section contacts">
+                    <h3 class="footer-title-contacts">CONTACTS</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <h4 class="contact-label">OFFICE LOCATION:</h4>
+                            <p class="contact-details">BUSINESS BAY, RESIDENCE</p>
+                            <p class="contact-details">110, RETAIL 2, DUBAI</p>
+                        </div>
+                        <div class="contact-item">
+                            <p class="contact-phone">+ 04 575 2978</p>
+                            <p class="contact-email">info@mgs-development.ae</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section messengers">
+                    <h3 class="footer-title">OUR MESSENGERS</h3>
+                    <div class="messenger-buttons">
+                        <a href="#" class="messenger-btn whatsapp">
+                            <img src="img/watsup.svg" alt="WhatsApp" class="messenger-icon">
+                            <span class="messenger-text">WhatsApp</span>
+                        </a>
+                        <a href="#" class="messenger-btn instagram">
+                            <img src="img/inst.svg" alt="Instagram" class="messenger-icon">
+                            <span class="messenger-text">Instagram</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section navigation">
+                    <div class="footer-nav">
+                        <a href="#projects" class="footer-nav-link">PROJECTS</a>
+                        <a href="#amenities" class="footer-nav-link">AMENITIES</a>
+                        <a href="#location" class="footer-nav-link">LOCATION</a>
+                    </div>
+                    <div class="footer-logo">
+                        <img src="img/logo.png" alt="Buildings" class="logo-icon">
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
