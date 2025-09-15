@@ -603,7 +603,6 @@ body {
 .amenities-slider {
     width: 100%;
     overflow: hidden;
-    padding-right: 15%; /* Уменьшаем, чтобы показать только маленькую часть 5-го элемента */
 }
 
 .amenities-track {
@@ -1706,23 +1705,16 @@ body {
     margin-right: auto;
 }
 .amenities-text { flex: 0 0 200px; display: flex; align-items: center; justify-content: center; }
+.amenities-block.indoor .amenities-text { flex-basis: 140px; }
 .amenities-slider { flex: 1; position: relative; height: 100%; }
+.section-amenities .slider-container { height: 100%; overflow: hidden; }
+.section-amenities .slider-track,
+.section-amenities .slider-track-reverse { height: 100%; }
+.section-amenities .slide { height: 100%; }
+.section-amenities .slider-image { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* mobile adjustments */
 @media (max-width: 768px) {
-    .section-amenities { padding: 20px; margin-bottom: 36px; }
-    .amenities-title { font-size: 20px; font-weight: 500; }
-    .amenities-list { grid-template-columns: repeat(3, 1fr); gap: 0; }
-    .amenity + .amenity { border-left: none; }
-    .amenity-icon { width: 28px; height: 28px; }
-    .amenity-label { font-size: 10px; padding-bottom: 8px; }
-    .amenity-label::after { width: 18px; height: 2px; }
-
-    .amenities-block { height: auto; margin: 12px 0 26px 0; position: relative; }
-    .amenities-text { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); z-index: 2; }
-    .section-amenities .vertical-text { writing-mode: horizontal-tb; transform: none; align-items: center; }
-    .section-amenities .text-main { font-size: 18px; color: #fff; letter-spacing: .12em; }
-    .section-amenities .text-sub { font-size: 16px; color: #fff; margin-top: 2px; }
-
-    .section-amenities .slider-indicators { bottom: 12px; }
+    .amenities-block { height: auto; }
+    .section-amenities .slider-container { height: auto; }
+    .section-amenities .slider-image { height: auto; }
 }

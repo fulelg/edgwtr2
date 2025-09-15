@@ -1,61 +1,64 @@
 class Slider {
     constructor(sliderSelector, trackSelector, indicatorsSelector, buttonId, isReverse = false) {
-        this.currentSlide = 0;
-        this.totalSlides = 5;
         this.isReverse = isReverse;
-        
         this.sliderTrack = document.querySelector(trackSelector);
         this.indicators = document.querySelectorAll(indicatorsSelector);
         this.nextButton = document.getElementById(buttonId);
-        
+        // динамически определяем количество слайдов
+        this.totalSlides = this.sliderTrack ? this.sliderTrack.children.length : 5;
+        this.stepPercent = 100 / this.totalSlides;
+        this.currentSlide = 0;
         this.init();
     }
-    
     init() {
+        // установить ширину трека и каждого слайда под количество элементов
+        if (this.sliderTrack) {
+            this.sliderTrack.style.width = `${this.totalSlides * 100}%`;
+            Array.from(this.sliderTrack.children).forEach((el) => {
+                el.style.width = `${this.stepPercent}%`;
+                el.style.flexShrink = '0';
+            });
+        }
         // Обработчик для кнопки "следующий"
-        this.nextButton.addEventListener('click', () => {
+        this.nextButton?.addEventListener('click', () => {
             this.nextSlide();
         });
-        
         // Обработчики для индикаторов
         this.indicators.forEach((indicator, index) => {
             indicator.addEventListener('click', () => {
                 this.goToSlide(index);
             });
         });
-        
+        // Первичное применение состояния
+        this.updateSlider();
         // Автоматическое переключение каждые 5 секунд
         this.autoPlay();
     }
-    
     nextSlide() {
         if (this.isReverse) {
-            // Для обратного слайдера двигаемся влево (уменьшаем индекс)
             this.currentSlide = this.currentSlide === 0 ? this.totalSlides - 1 : this.currentSlide - 1;
         } else {
-            // Для обычного слайдера двигаемся вправо (увеличиваем индекс)
             this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
         }
         this.updateSlider();
     }
-    
     goToSlide(index) {
+        if (index < 0) index = 0;
+        if (index > this.totalSlides - 1) index = this.totalSlides - 1;
         this.currentSlide = index;
         this.updateSlider();
     }
-    
     updateSlider() {
         // Обновляем позицию слайдера
         let translateX;
         if (this.isReverse) {
-            // Для обратного направления: начинаем с последнего слайда и двигаемся влево
-            translateX = -((this.totalSlides - 1 - this.currentSlide) * 20);
-            console.log('Reverse slider - currentSlide:', this.currentSlide, 'translateX:', translateX);
+            translateX = -((this.totalSlides - 1 - this.currentSlide) * this.stepPercent);
         } else {
-            translateX = -this.currentSlide * 20; // Для обычного направления
+            translateX = -(this.currentSlide * this.stepPercent);
         }
-        this.sliderTrack.style.transform = `translateX(${translateX}%)`;
-        
+        if (this.sliderTrack) {
+            this.sliderTrack.style.transform = `translateX(${translateX}%)`;
+        }
         // Обновляем активный индикатор
         this.indicators.forEach((indicator, index) => {
             if (index === this.currentSlide) {
@@ -65,11 +68,10 @@ class Slider {
             }
         });
     }
-    
     autoPlay() {
         setInterval(() => {
             this.nextSlide();
-        }, 5000); // 5 секунд
+        }, 5000);
     }
 }
 
@@ -80,36 +82,30 @@ class AmenitiesGallery {
         this.track = document.querySelector('.amenities-track');
         this.prevButton = document.querySelector('.amenity-prev');
         this.nextButton = document.querySelector('.amenity-next');
-        
         this.init();
     }
-    
     init() {
         if (this.prevButton) {
             this.prevButton.addEventListener('click', () => {
                 this.prevItem();
             });
         }
-        
         if (this.nextButton) {
             this.nextButton.addEventListener('click', () => {
                 this.nextItem();
             });
         }
     }
-    
     nextItem() {
         this.currentIndex = (this.currentIndex + 1) % this.totalItems;
         this.updateGallery();
     }
-    
     prevItem() {
         this.currentIndex = this.currentIndex === 0 ? this.totalItems - 1 : this.currentIndex - 1;
         this.updateGallery();
     }
-    
     updateGallery() {
-        const translateX = -this.currentIndex * 20; // 20% на каждый элемент (5 элементов)
+        const translateX = -this.currentIndex * 20;
         this.track.style.transform = `translateX(${translateX}%)`;
     }
 }
@@ -121,36 +117,30 @@ class ProjectsGallery {
         this.track = document.querySelector('.projects-track');
         this.prevButton = document.querySelector('.project-prev');
         this.nextButton = document.querySelector('.project-next');
-        
         this.init();
     }
-    
     init() {
         if (this.prevButton) {
             this.prevButton.addEventListener('click', () => {
                 this.prevItem();
             });
         }
-        
         if (this.nextButton) {
             this.nextButton.addEventListener('click', () => {
                 this.nextItem();
             });
         }
     }
-    
     nextItem() {
         this.currentIndex = (this.currentIndex + 1) % this.totalItems;
         this.updateGallery();
     }
-    
     prevItem() {
         this.currentIndex = this.currentIndex === 0 ? this.totalItems - 1 : this.currentIndex - 1;
         this.updateGallery();
     }
-    
     updateGallery() {
-        const translateX = -this.currentIndex * 20; // 20% на каждый элемент (5 элементов)
+        const translateX = -this.currentIndex * 20;
         this.track.style.transform = `translateX(${translateX}%)`;
     }
 }
@@ -189,23 +179,19 @@ function enableSwipeSlider(trackSelector, slidesCount, isReverse = false, indica
   let current = isReverse ? slidesCount - 1 : 0;
   let startX = 0;
   let isTouch = false;
-
-  const container = track.parentElement; // .slider-container
+  const container = track.parentElement;
   const indicators = indicatorsSelector ? document.querySelectorAll(indicatorsSelector) : null;
-
   function setActiveDot() {
     if (!indicators) return;
     indicators.forEach((d, i) => d.classList.toggle('active', i === current));
   }
-
   function update() {
-    const step = 100 / slidesCount; // ширина одного слайда в процентах
+    const step = 100 / slidesCount;
     const percent = -current * step;
     track.style.transition = 'transform 0.35s ease';
     track.style.transform = `translateX(${percent}%)`;
     setActiveDot();
   }
-
   function onStart(e) {
     isTouch = true;
     startX = (e.touches ? e.touches[0].clientX : e.clientX);
@@ -226,14 +212,12 @@ function enableSwipeSlider(trackSelector, slidesCount, isReverse = false, indica
     const x = (e.changedTouches ? e.changedTouches[0].clientX : e.clientX);
     const dx = x - startX;
     const threshold = container.clientWidth * 0.15;
-
     if (Math.abs(dx) > threshold) {
       if (dx < 0) current = Math.min(current + 1, slidesCount - 1);
       else current = Math.max(current - 1, 0);
     }
     update();
   }
-
   container.addEventListener('touchstart', onStart, { passive: true });
   container.addEventListener('touchmove', onMove, { passive: true });
   container.addEventListener('touchend', onEnd);
@@ -241,7 +225,6 @@ function enableSwipeSlider(trackSelector, slidesCount, isReverse = false, indica
   container.addEventListener('mousemove', onMove);
   container.addEventListener('mouseup', onEnd);
   container.addEventListener('mouseleave', onEnd);
-
   update();
 }
 
@@ -251,14 +234,12 @@ function enableSwipeSliderByItemWidth(trackSelector, itemSelector) {
     const container = track.parentElement;
     const items = track.querySelectorAll(itemSelector);
     if (items.length === 0) return;
-
     const getGap = () => {
         const cs = getComputedStyle(track);
         const g = (cs.gap || cs.columnGap || '0').toString();
         const val = parseFloat(g);
         return isNaN(val) ? 0 : val;
     };
-
     function measure() {
         const gap = getGap();
         const itemWidth = items[0].getBoundingClientRect().width;
@@ -266,17 +247,14 @@ function enableSwipeSliderByItemWidth(trackSelector, itemSelector) {
         const maxIndex = Math.max(0, Math.floor((track.scrollWidth - container.clientWidth + 1) / stepPx));
         return { stepPx, maxIndex };
     }
-
     let { stepPx, maxIndex } = measure();
     let current = 0;
     let startX = 0;
     let isTouch = false;
-
     function apply() {
         track.style.transition = 'transform 0.35s ease';
         track.style.transform = `translateX(${-current * stepPx}px)`;
     }
-
     function onStart(e) {
         isTouch = true;
         startX = (e.touches ? e.touches[0].clientX : e.clientX);
@@ -300,14 +278,12 @@ function enableSwipeSliderByItemWidth(trackSelector, itemSelector) {
         }
         apply();
     }
-
     window.addEventListener('resize', () => {
         const m = measure();
         stepPx = m.stepPx;
         maxIndex = m.maxIndex;
         apply();
     });
-
     container.addEventListener('touchstart', onStart, { passive: true });
     container.addEventListener('touchmove', onMove, { passive: true });
     container.addEventListener('touchend', onEnd);
@@ -315,7 +291,6 @@ function enableSwipeSliderByItemWidth(trackSelector, itemSelector) {
     container.addEventListener('mousemove', onMove);
     container.addEventListener('mouseup', onEnd);
     container.addEventListener('mouseleave', onEnd);
-
     apply();
 }
 
@@ -328,8 +303,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // AMENITIES: outdoor (обычное направление)
     new Slider('.amenities-outdoor', '.amenities-outdoor .slider-track', '.amenities-outdoor .indicator', 'amenOutNext', false);
-    // AMENITIES: indoor (обратное направление) — стрелка справа
-    new Slider('.amenities-indoor', '.amenities-indoor .slider-track-reverse', '.amenities-indoor .indicator', 'amenInNext', true);
+    // AMENITIES: indoor (обратное направление) — стрелка слева
+    new Slider('.amenities-indoor', '.amenities-indoor .slider-track-reverse', '.amenities-indoor .indicator', 'amenInPrev', true);
 
     // Interior galleries (living/bedroom/bathroom)
     new HorizontalGallery('.living-track', '.living-prev', '.living-next', 13);
@@ -342,7 +317,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const isMobile = window.matchMedia('(max-width: 768px)').matches;
   if (isMobile) {
     enableSwipeSlider('.amenities-outdoor .slider-track', 5, false, '.amenities-outdoor .indicator');
-    enableSwipeSlider('.amenities-indoor .slider-track-reverse', 5, true, '.amenities-indoor .indicator');
+    enableSwipeSlider('.amenities-indoor .slider-track-reverse', 3, true, '.amenities-indoor .indicator');
     enableSwipeSlider('.section-ew .slider-track', 5, false, '.section-ew .indicator');
     enableSwipeSlider('.ew-2 .slider-track', 5, false, '.ew-2 .indicator');
     enableSwipeSlider('.ew-3 .slider-track', 5, false, '.ew-3 .indicator');
@@ -356,31 +331,23 @@ window.addEventListener('DOMContentLoaded', () => {
   const mobileMenu = document.querySelector('.mobile-menu');
   const closeBtn = document.querySelector('.mobile-close');
   const links = document.querySelectorAll('.mobile-link');
-
   function closeMenu() {
     burger?.classList.remove('active');
     mobileMenu?.classList.remove('open');
     document.body.style.overflow = '';
   }
-
   burger?.addEventListener('click', () => {
     burger.classList.toggle('active');
     mobileMenu.classList.toggle('open');
     const opened = mobileMenu.classList.contains('open');
     document.body.style.overflow = opened ? 'hidden' : '';
   });
-
   closeBtn?.addEventListener('click', closeMenu);
   links.forEach((l) => l.addEventListener('click', closeMenu));
-
-  // Download & open brochure PDF
   const brochureBtn = document.querySelector('.section-1-brochure-button');
   brochureBtn?.addEventListener('click', (e) => {
     e.preventDefault();
     const url = 'pdf/Brochure.pdf';
-    // open in new tab
-    // window.open(url, '_blank');
-    // trigger download
     const a = document.createElement('a');
     a.href = url;
     a.download = 'Brochure.pdf';
