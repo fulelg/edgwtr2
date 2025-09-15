@@ -298,11 +298,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Второй слайдер (обратное направление)
     new Slider('.section-3-slider', '.slider-track-reverse', '.section-3-slider .indicator', 'prevSlide', true);
-    
+
+    // EW слайдеры
+    new Slider('.section-ew', '.section-ew .slider-track', '.section-ew .indicator', 'ewNext', false);
+    new Slider('.ew-2', '.ew-2 .slider-track', '.ew-2 .indicator', 'ewNext2', false);
+    new Slider('.ew-3', '.ew-3 .slider-track', '.ew-3 .indicator', 'ewNext3', false);
+
     // Галерея удобств
     new AmenitiesGallery();
     
-    // Галерея проектов
+    // Галерея проектов (Completed)
     new ProjectsGallery();
 }); 
 
@@ -313,7 +318,10 @@ window.addEventListener('DOMContentLoaded', () => {
     enableSwipeSlider('.section-2 .slider-track', 5, false, '.section-2 .indicator');
     enableSwipeSlider('.section-3 .slider-track-reverse', 5, true, '.section-3 .indicator');
     enableSwipeSlider('.amenities-track', 4, false, '.amenities-indicators .indicator');
-    // Секция 6: шаг по ширине карточки (item + gap), сохраняет превью и делает свайп "большим"
+    enableSwipeSlider('.section-ew .slider-track', 5, false, '.section-ew .indicator');
+    enableSwipeSlider('.ew-2 .slider-track', 5, false, '.ew-2 .indicator');
+    enableSwipeSlider('.ew-3 .slider-track', 5, false, '.ew-3 .indicator');
+    // Секция 6: шаг по ширине карточки (item + gap)
     enableSwipeSliderByItemWidth('.projects-track', '.project-item');
   }
 });

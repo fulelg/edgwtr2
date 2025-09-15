@@ -136,7 +136,7 @@ body {
 /* Menu logo */
 .menu {
     display: flex;
-    justify-content: end;
+    justify-content: flex-start;
     padding: 62px 100px 0 100px;
     position: relative;
     z-index: 2;
@@ -169,16 +169,15 @@ body {
     color: #000;
 }
 
-.menu-item:not(:last-child) {
-    margin-right: 50px;
-}
+/* normalize spacing between menu items to rely on flex gap only */
+.menu-item:not(:last-child) { margin-right: 0; }
 
 .contact-us {
     background-color: #fff;
     color: #000;
     border: none;
     padding: 10px 18px;
-    margin-left: 62px;
+    margin-left: auto;
     font-family: 'Manrope', sans-serif;
     font-size: 16px;
     font-weight: 600;
@@ -191,28 +190,23 @@ body {
     color: #fff;
 }
 
-.header-content {
+/* Header center script text */
+.header-center {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
+    text-align: center;
 }
 
-.header-title {
-    font-family: 'Kugile', serif;
-    font-size: 60px;
-    font-weight: 400;
-    text-transform: uppercase;
+.header-script {
+    font-family: 'Gwendolyn', serif;
+    font-weight: 700;
+    font-size: 56px;
     color: #fff;
-}
-
-.header-subtitle {
-    font-family: 'Kugile', serif;
-    font-size: 38px;
-    font-weight: 400;
-    color: #fff;
-    text-transform: uppercase;
+    line-height: 1;
+    white-space: normal;
 }
 
 /* Header video */
@@ -231,7 +225,7 @@ body {
 .section-1 {
     background-color: #fff;
     padding: 145px 133px 0 133px;
-    margin-bottom: 100px;
+    /* margin-bottom: 100px; */
 }
 
 /* Section 1 layout update */
@@ -813,7 +807,7 @@ body {
 
 .project-nav-arrow:hover {
     transform: scale(1.1);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); */
 }
 
 .project-nav-arrow img {
@@ -1502,4 +1496,90 @@ body {
 	.messenger-btn { padding: 8px 14px; font-size: 12px; }
 	.messenger-icon { width: 14px; height: 14px; }
 	.messenger-text { font-size: 14px; }
+}
+
+@media (max-width: 768px) {
+    /* центрируем и уменьшаем текст на мобильных */
+    .header-script { font-size: 28px; white-space: normal; }
+}
+
+/* Section EW - hero carousel below header */
+.section-ew {
+    background: #fff;
+    padding: 40px 133px 0 133px;
+    margin-bottom: 22px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 66px;
+}
+.ew-slider { position: relative; height: 590px; }
+.ew-slider .slider-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* используем общие правила .slider-track/.slide из секции 2 (5 слайдов по 20%) */
+.ew-divider {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    margin: 1em 0;
+    margin-top: 66px;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.section-ew .slider-container { height: 100%; overflow: hidden; }
+.section-ew .slider-nav-arrow { right: 120px; }
+
+@media (max-width: 768px) {
+    .section-ew { padding: 20px 20px 0 20px; margin-bottom: 16px; }
+    .section-ew .slider-nav-arrow { display: none; }
+    .ew-divider { width: 100%; height: 1px; margin: 12px 0 0 0; }
+}
+
+/* Section Interior (three carousels like Completed Projects) */
+.section-interior {
+    background: #fff;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-bottom: 90px;
+}
+.section-interior-header { text-align: center; margin-bottom: 34px; }
+.interior-title {
+    font-family: 'AWConquerorStdDidot', serif;
+    font-size: 40px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #000;
+}
+.interior-group { margin-bottom: 40px; }
+.interior-subtitle {
+    font-family: 'Gwendolyn', serif;
+    font-weight: 700;
+    font-size: 38px;
+    color: #000;
+    text-align: center;
+    margin-bottom: 18px;
+}
+/* используем уже существующие проекты-карусели стили */
+.section-interior .projects-gallery { width: 100%; position: relative; }
+.section-interior .projects-slider { overflow: hidden; padding-right: 15%; }
+.section-interior .projects-track { display: flex; transition: transform .5s ease-in-out; width: 120%; gap: 13px; }
+.section-interior .project-item { flex: 0 0 calc(20% - 32px); display: flex; flex-direction: column; align-items: center; }
+.section-interior .project-image { width: 500px; height: 460px; object-fit: cover; margin-bottom: 6px; }
+.section-interior .projects-navigation { display: flex; justify-content: flex-start; align-items: center; margin-top: 20px; gap: 10px; }
+
+@media (max-width: 768px) {
+    .section-interior { padding-left: 20px; padding-right: 20px; margin-bottom: 40px; }
+    .interior-title { font-size: 20px; font-weight: 500; margin-bottom: 10px; }
+    .interior-subtitle { font-size: 18px; margin-bottom: 10px; }
+
+    /* моб. карусели: как секция 6 */
+    .section-interior .projects-slider { overflow: hidden; padding-right: 0; }
+    .section-interior .projects-track { display: flex; gap: 16px; width: auto; transition: transform .35s ease; }
+    .section-interior .project-item { flex: 0 0 calc(100% - 48px); }
+    .section-interior .project-image { width: 100%; height: 240px; object-fit: cover; }
+    .section-interior .projects-navigation { display: none; }
 }
