@@ -98,10 +98,12 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
     font-family: 'Manrope', sans-serif;
+    overflow-x: hidden;
 }
 
 .wrapper {
@@ -1621,7 +1623,7 @@ body {
 .future-text-bold {
     font-weight: 700;
 }
-.future-image { width: 100vw; margin: 14px 0 22px 0; margin-bottom: 90px; margin-left: 50%; transform: translateX(-50%); }
+.future-image { width: 100%; margin: 14px 0 22px 0; margin-bottom: 90px; }
 .future-image img { width: 100%; height: auto; display: block; }
 
 .future-stats { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 10px auto 0 auto; text-align: center; gap: 0; }
@@ -1635,7 +1637,7 @@ body {
     .future-title { font-size: 18px; padding: 0 20px; }
     .future-subtitle { font-size: 20px; padding: 0 20px; }
     .future-text { font-size: 12px; padding: 0 20px 12px 20px; }
-    .future-image { width: 100vw; margin: 0 0 16px 50%; transform: translateX(-50%); }
+    .future-image { width: 100%; margin: 0 0 16px 0; transform: none; }
     .future-stats { display: flex; justify-content: space-between; align-items: stretch; gap: 0; padding: 0 12px; }
     .future-stat { flex: 1 1 0; min-width: 0; padding: 8px 4px; text-align: center; }
     .future-stats .info-divider { display: block; width: 1px; background: #3F3F3F; height: auto; align-self: stretch; opacity: .25; margin: 0 8px; }
