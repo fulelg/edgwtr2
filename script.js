@@ -155,6 +155,34 @@ class ProjectsGallery {
     }
 }
 
+class HorizontalGallery {
+    constructor(trackSelector, prevSelector, nextSelector, totalItems = 5) {
+        this.currentIndex = 0;
+        this.totalItems = totalItems;
+        this.track = document.querySelector(trackSelector);
+        this.prevButton = document.querySelector(prevSelector);
+        this.nextButton = document.querySelector(nextSelector);
+        if (!this.track) return;
+        this.init();
+    }
+    init() {
+        this.prevButton?.addEventListener('click', () => this.prev());
+        this.nextButton?.addEventListener('click', () => this.next());
+    }
+    next() {
+        this.currentIndex = (this.currentIndex + 1) % this.totalItems;
+        this.apply();
+    }
+    prev() {
+        this.currentIndex = this.currentIndex === 0 ? this.totalItems - 1 : this.currentIndex - 1;
+        this.apply();
+    }
+    apply() {
+        const translateX = -this.currentIndex * 20;
+        this.track.style.transform = `translateX(${translateX}%)`;
+    }
+}
+
 function enableSwipeSlider(trackSelector, slidesCount, isReverse = false, indicatorsSelector) {
   const track = document.querySelector(trackSelector);
   if (!track) return;
@@ -309,6 +337,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Галерея проектов (Completed)
     new ProjectsGallery();
+
+    // Interior galleries (living/bedroom/bathroom)
+    new HorizontalGallery('.living-track', '.living-prev', '.living-next', 13);
+    new HorizontalGallery('.bedroom-track', '.bedroom-prev', '.bedroom-next', 14);
+    new HorizontalGallery('.bathroom-track', '.bathroom-prev', '.bathroom-next', 4);
 }); 
 
 // Инициализация свайп-слайдеров на мобильных

@@ -1190,7 +1190,7 @@ body {
 .location-map img {
     width: 644px;
     height: 344px;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
 }
 
