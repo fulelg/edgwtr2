@@ -355,4 +355,12 @@ window.addEventListener('DOMContentLoaded', () => {
     a.click();
     a.remove();
   });
+
+  // CONTACT US (footer section-building) — поведение как у кнопки в хедере
+  const headerContactBtn = document.querySelector('.contact-us');
+  const buildingContactBtn = document.querySelector('.cta-contact-us');
+  buildingContactBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
+    headerContactBtn?.click();
+  });
 }); 
