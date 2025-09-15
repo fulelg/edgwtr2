@@ -1621,7 +1621,7 @@ body {
 .future-text-bold {
     font-weight: 700;
 }
-.future-image { width: 100%; margin: 14px 0 22px 0; margin-bottom: 90px; }
+.future-image { width: 100vw; margin: 14px 0 22px 0; margin-bottom: 90px; margin-left: 50%; transform: translateX(-50%); }
 .future-image img { width: 100%; height: auto; display: block; }
 
 .future-stats { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 10px auto 0 auto; text-align: center; gap: 0; }
@@ -1631,12 +1631,16 @@ body {
 .future-stat .label { font-family: 'Manrope', sans-serif; font-size: 16px; font-weight: 500; color: #000; opacity: 0.8; text-transform: uppercase; }
 
 @media (max-width: 768px) {
-    .section-future { padding: 20px; margin-bottom: 36px; }
-    .future-title { font-size: 18px; }
-    .future-subtitle { font-size: 20px; }
-    .future-text { font-size: 12px; }
-    .future-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .future-stats .info-divider { display: none; }
+    .section-future { padding: 0 0 36px 0; }
+    .future-title { font-size: 18px; padding: 0 20px; }
+    .future-subtitle { font-size: 20px; padding: 0 20px; }
+    .future-text { font-size: 12px; padding: 0 20px 12px 20px; }
+    .future-image { width: 100vw; margin: 0 0 16px 50%; transform: translateX(-50%); }
+    .future-stats { display: flex; justify-content: space-between; align-items: stretch; gap: 0; padding: 0 12px; }
+    .future-stat { flex: 1 1 0; min-width: 0; padding: 8px 4px; text-align: center; }
+    .future-stats .info-divider { display: block; width: 1px; background: #3F3F3F; height: auto; align-self: stretch; opacity: .25; margin: 0 8px; }
+    .future-stat .num { font-size: 14px; font-weight: 700; }
+    .future-stat .label { font-size: 9px; line-height: 120%; font-weight: 500; }
 }
 
 /* Section Amenities (combined EXTERIOR + INTERIOR) */
