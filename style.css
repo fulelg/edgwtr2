@@ -1832,6 +1832,16 @@ body {
     .handover { margin: 24px 0 12px 0; text-align: center; }
     .handover-label { font-size: 12px; }
     .handover-value { font-size: 18px; }
+    .cta-contact-us {
+        color: #000;
+        text-transform: none;
+    }
+    .building-left {
+        width: 100%;
+    }
+    .building-image img {   
+        width: 100%;
+    }
 }
 
 @media (max-width: 768px) {
