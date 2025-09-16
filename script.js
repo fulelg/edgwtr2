@@ -366,3 +366,54 @@ window.addEventListener('DOMContentLoaded', () => {
     headerContactBtn?.click();
   });
 }); 
+
+// Header video: use a lighter/mobile teaser video on small screens
+(function() {
+    const LOCAL_MOBILE = 'vid/EdgeWater_Residence_Teaser_2V_small.mp4';
+    const LOCAL_DESKTOP = 'vid/Edgewater_event_video_small.mp4';
+    const IS_GITHUB_PAGES = /github\.io$/.test(location.hostname);
+    const MOBILE_SRC = LOCAL_MOBILE;
+    const DESKTOP_SRC = LOCAL_DESKTOP;
+    const LOCAL_DESKTOP_POSTER = 'img/Copy of A_Pti4ka_1 1.png';
+    const LOCAL_MOBILE_POSTER = 'img/image copy.png';
+  
+    function setHeaderVideoByViewport() {
+      const video = document.querySelector('.header-video');
+      if (!video) return;
+      const source = video.querySelector('source');
+      if (!source) return;
+      // Гарантируем параметры для iOS автоплея
+      video.muted = true;
+      video.setAttribute('muted', 'muted');
+      video.playsInline = true;
+      video.setAttribute('playsinline', '');
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      const target = isMobile ? MOBILE_SRC : DESKTOP_SRC;
+      const poster = isMobile ? LOCAL_MOBILE_POSTER : LOCAL_DESKTOP_POSTER;
+      const messengerText = document.querySelectorAll('.messenger-text');
+      messengerText[0].textContent = !isMobile ? 'WhatsApp' : '';
+      messengerText[1].textContent = !isMobile ? 'Instagram' : '';
+  
+      if (video.getAttribute('poster') !== poster) {
+        video.setAttribute('poster', poster);
+      }
+      if (source.getAttribute('src') === target) return;
+      source.setAttribute('src', target);
+      video.load();
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.then === 'function') {
+        playPromise.catch(() => {});
+      }
+      // iOS Chrome/Safari: запустить при первом взаимодействии
+      const onFirstTouch = () => {
+        video.play().catch(() => {});
+        window.removeEventListener('touchstart', onFirstTouch);
+        window.removeEventListener('click', onFirstTouch);
+      };
+      window.addEventListener('touchstart', onFirstTouch, { once: true, passive: true });
+      window.addEventListener('click', onFirstTouch, { once: true });
+    }
+  
+    window.addEventListener('DOMContentLoaded', setHeaderVideoByViewport);
+    window.addEventListener('resize', setHeaderVideoByViewport);
+  })();

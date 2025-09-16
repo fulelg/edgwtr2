@@ -1122,8 +1122,8 @@ body {
 }
 
 .logo-icon {
-    width: 84px;
-    height: 25px;
+    width: 202x;
+    height: 102px;
 }
 
 /* New Section 7 - Location after Section 4 */
@@ -1854,4 +1854,177 @@ body {
     /* убрать разделитель у первого столбца каждой строки (5 колонок) */
     .amenities-list .amenity:nth-child(5n + 1) { border-left: none; }
     .amenities-divider { width: 100%; }
+}
+
+.footer-image {
+    width: 100%;
+    height: 626px;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+* Footer */
+.footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 52px 158px 76px 99px;
+    margin-top: 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-section {
+    flex: 1;
+    max-width: fit-content;
+    margin-top: auto;
+}
+
+.footer-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 21px;
+    margin-top: 24px;
+    line-height: 100%;
+    text-align: center;
+}
+
+.footer-title-contacts {
+    font-family: 'Manrope', sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 33px;
+    line-height: 100%;
+}
+
+.footer-logo-mobile {
+    display: none;
+}
+
+/* Footer mobile layout */
+@media (max-width: 768px) {
+    .footer {
+        padding: 20px;
+        display: flex;
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "contacts navigation"
+            "messengers navigation";
+        gap: 16px 24px;
+        align-items: start;
+        width: fit-content;
+    }
+
+    .footer-section {
+        max-width: none;
+    }
+
+    .footer-section.contacts {
+        grid-area: contacts;
+    }
+
+    .footer-section.messengers {
+        grid-area: messengers;
+    }
+
+    .footer-section.navigation {
+        grid-area: navigation;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .footer-section.navigation .footer-logo {
+        order: -1;
+    }
+
+    .footer-title-contacts {
+        font-size: 20px;
+        margin-bottom: 14px;
+        margin-right: auto;
+    }
+
+    .footer-title {
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .contact-label {
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+
+    .contact-details,
+    .contact-phone,
+    .contact-email {
+        font-size: 12px;
+    }
+
+    .footer-nav {
+        margin-bottom: 0;
+    }
+
+    .footer-nav-link {
+        font-size: 12px;
+    }
+
+    .logo-icon {
+        width: 56px;
+        height: auto;
+    }
+
+    .messenger-buttons {
+        gap: 10px;
+    }
+
+    .messenger-btn {
+        padding: 8px 14px;
+        font-size: 12px;
+        border: none;
+        padding: 0;
+    }
+
+    .messenger-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .messenger-text {
+        font-size: 14px;
+    }
+
+    .footer-logo .logo-icon {
+        display: none;
+    }
+
+    .footer-logo-mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 25%;
+    }
+
+    .footer-section.navigation {
+        display: none;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+    }
 }
