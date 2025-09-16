@@ -1,4 +1,4 @@
-/* Инициализация шрифтов */
+/* Инициализация шрифтов (font-display: swap добавлен для ускорения отрисовки) */
 
 /* Gwendolyn */
 @font-face {
@@ -6,6 +6,7 @@
     src: url('fonts/Gwendolyn-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -13,6 +14,7 @@
     src: url('fonts/Gwendolyn-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
+    font-display: swap;
 }
 
 /* Manrope */
@@ -21,6 +23,7 @@
     src: url('fonts/Manrope-ExtraLight.ttf') format('truetype');
     font-weight: 200;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -28,6 +31,7 @@
     src: url('fonts/Manrope-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -35,6 +39,7 @@
     src: url('fonts/Manrope-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -42,6 +47,7 @@
     src: url('fonts/Manrope-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -49,6 +55,7 @@
     src: url('fonts/Manrope-SemiBold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -56,6 +63,7 @@
     src: url('fonts/Manrope-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -63,6 +71,7 @@
     src: url('fonts/Manrope-ExtraBold.ttf') format('truetype');
     font-weight: 800;
     font-style: normal;
+    font-display: swap;
 }
 
 /* MeieScript */
@@ -71,6 +80,7 @@
     src: url('fonts/MeieScript-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 /* Kugile */
@@ -79,6 +89,7 @@
     src: url('fonts/Kugile.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 /* AW Conqueror Std Didot */
@@ -87,6 +98,7 @@
     src: url('fonts/awconqueror-std-didot.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 /* Базовые стили */
@@ -1122,7 +1134,7 @@ body {
 }
 
 .logo-icon {
-    width: 202x;
+    width: 202px;
     height: 102px;
 }
 
@@ -2078,4 +2090,15 @@ body {
             display: flex;
             justify-content: space-between;
     }
+}
+
+/* Performance: avoid rendering offscreen sections until needed */
+.section-ew,
+.section-interior,
+.section-amenities,
+.section-building,
+.section-7,
+.section-future {
+    content-visibility: auto;
+    contain-intrinsic-size: 900px;
 }

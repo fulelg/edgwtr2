@@ -369,8 +369,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // Header video: use a lighter/mobile teaser video on small screens
 (function() {
-    const LOCAL_MOBILE = 'vid/EdgeWater_Residence_Teaser_2V_small.mp4';
-    const LOCAL_DESKTOP = 'vid/Edgewater_event_video_small.mp4';
+    const LOCAL_MOBILE = 'vid/preview.mp4';
+    const LOCAL_DESKTOP = 'vid/preview.mp4';
     const IS_GITHUB_PAGES = /github\.io$/.test(location.hostname);
     const MOBILE_SRC = LOCAL_MOBILE;
     const DESKTOP_SRC = LOCAL_DESKTOP;
