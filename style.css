@@ -1813,7 +1813,7 @@ body {
 
 @media (max-width: 768px) {
     .section-building { padding: 20px; }
-    .building-content { grid-template-columns: 1fr; gap: 24px; }
+    .building-content { grid-template-columns: 1fr; gap: 24px; margin-bottom: 0; }
     .building-title, .unit-title { font-size: 20px; line-height: 119%; text-align: center; margin-bottom: 12px; }
     .building-text { font-size: 12px; line-height: 150%; opacity: .8; max-width: 100%; margin: 8px 0 14px 0; text-align: center; }
     .building-stats { gap: 10px; margin: 8px auto 16px auto; justify-content: center; align-items: center; max-width: 360px; }
@@ -1828,7 +1828,7 @@ body {
     .unit-range { font-size: 10px; margin-bottom: 8px; text-align: center; }
     .unit-price { font-size: 12px; }
     .unit-divider { margin: 6px 0 0 0; }
-    .building-cta { margin-top: 16px; }
+    .building-cta { margin-top: 16px; margin-bottom: 0; margin-bottom:50px; }
     .handover { margin: 24px 0 12px 0; text-align: center; }
     .handover-label { font-size: 12px; }
     .handover-value { font-size: 18px; }
@@ -1846,7 +1846,7 @@ body {
     .amenities-title { font-size: 20px; font-weight: 500; }
     .amenities-icons { margin: 6px 0 22px 0; }
     .amenities-list { grid-template-columns: repeat(5, 1fr); gap: 0; }
-    .amenity { padding: 10px 4px; }
+    .amenity { padding: 6px 6px; }
     .amenity-icon { width: 28px; height: 28px; }
     .amenity-label { font-size: 10px; line-height: 119%; }
     /* вертикальные разделители между колонками */
@@ -2026,5 +2026,46 @@ body {
     .footer-content {
         display: flex;
         flex-direction: column;
+    }
+
+    .section-future {
+        margin-bottom: 0;
+    }
+
+    .section-amenities {
+        margin-bottom: 0;
+    }
+
+    .section-amenities {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* gap: 20px; */
+    }
+
+    .amenities-divider {
+        margin: 0;
+    }
+
+    .amenities-block.outdoor {
+        margin-bottom: 30px;
+    }
+
+    .amenities-block.indoor {
+        margin-top: 30px;
+        margin-bottom: 0;
+        order: 1;
+    }
+
+    .amenities-icons.indoor {
+        order: 2;
+    }
+
+    .building-stat {
+            height: 54px;
+            padding: 0 8px;
+            display: flex;
+            justify-content: space-between;
     }
 }
